@@ -18,7 +18,7 @@ public class R_App {
      */
     public static void main(String[] args) {
         
-        IRecipe salad = RecipesBook.makeSaladDressing();
+        IRecipe salad = RecipesBook.makeHealthyChickenBreast();
         
         CostCalculator calc = new CostCalculator();
         calc.CalculateCost(salad);
