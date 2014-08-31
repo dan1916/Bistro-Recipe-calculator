@@ -22,7 +22,8 @@ import java.util.logging.Logger;
 import r_app.Implementations.*;
 import r_app.Interfaces.*;
 
-/**
+/**Calculates the cost of a food recipe based upon individual  ingredients
+ * and sales tax as well as wellness discount.
  *
  * @author Dhaval
  */
