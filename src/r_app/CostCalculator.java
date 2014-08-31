@@ -43,6 +43,11 @@ public final class CostCalculator {
         this.wellnessDiscount = wellnessDiscount;
     }
     
+    /**
+     * Calculates the cost of all the ingredients in a recipe.
+     * @param recipe
+     * @return 
+     */
     public final BigDecimal CalculateCost(IRecipe recipe)
     {
         Logger logger = Logger.getLogger("R_APP"); //Here is where all log will go.
