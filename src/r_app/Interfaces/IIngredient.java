@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Interface representing an ingredient in the food recipe.
  */
 package r_app.Interfaces;
 
@@ -9,7 +7,7 @@ import java.math.BigDecimal;
 
 /**
  *
- * @author smart
+ * @author Dhaval
  */
 public interface IIngredient {
     
