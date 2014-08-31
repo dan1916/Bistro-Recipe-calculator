@@ -49,15 +49,17 @@ public final class CostCalculator {
         {
             if (ingredient instanceof Meat || ingredient instanceof Pantry)
             {
-                //Have to apply Sales Tax...
-                totalPriceWithoutProduce = totalPriceWithoutProduce.add(ingredient.getPrice().multiply( new BigDecimal(ingredient.getAmount(),MathContext.DECIMAL32)));
-                logger.log(Level.INFO, "");
+                //Calculate price as per number of units and add...
+                BigDecimal price = ingredient.getPrice().multiply( new BigDecimal(ingredient.getAmount(),MathContext.DECIMAL32));
+                totalPriceWithoutProduce = totalPriceWithoutProduce.add(price);
+                logger.log(Level.INFO, "Added :" + ingredient.getName() + " " + ingredient.getAmount() + " * $" + ingredient.getPrice().toString() + " = $" + price.toString());
             }
             else
             {
-                totalPriceOfProduce = totalPriceOfProduce.add(ingredient.getPrice().multiply(new BigDecimal(ingredient.getAmount(),MathContext.DECIMAL32)));
-                System.out.println("Printing...");
-                System.out.println(totalPriceOfProduce);
+                //Calculate price as per number of units and add...
+                BigDecimal price = ingredient.getPrice().multiply(new BigDecimal(ingredient.getAmount(),MathContext.DECIMAL32));
+                totalPriceOfProduce = totalPriceOfProduce.add(price);
+                logger.log(Level.INFO, "Added :" + ingredient.getName() + " " + ingredient.getAmount() + " * $" + ingredient.getPrice().toString() + " = $" + price.toString());
             }
                 
             //Check for organic items...
@@ -68,24 +70,19 @@ public final class CostCalculator {
         //Now calculate sales tax with rounding to nearest 7 cents i.e. 0.07
         totalSalesTax = totalPriceWithoutProduce.multiply(new BigDecimal(salesTax).divide(new BigDecimal(100)));
         totalSalesTax =  CostCalculator.round(totalSalesTax, new BigDecimal(0.07,MathContext.DECIMAL32));
-        
-        System.out.println("Total Sales Tax...");
-        System.out.println(totalSalesTax);
+        logger.log(Level.INFO,"\n\nTotal Sales Tax you pay is $" + String.format("%.2f",totalSalesTax));
         
         //Calculate wellness discount.
         totalOrganicDiscount = organicOnlyPrice.multiply(new BigDecimal(wellnessDiscount).divide(new BigDecimal(100)));
         totalOrganicDiscount =  CostCalculator.round(totalOrganicDiscount, new BigDecimal(0.01,MathContext.DECIMAL32));
-        
-        System.out.println(totalOrganicDiscount);
+        logger.log(Level.INFO,"\n\nTotal Organic Discount you get is $" + String.format("%.2f",totalOrganicDiscount));
         
         //Finally find total cost.
         totalCost = totalPriceOfProduce.add(totalPriceWithoutProduce).add(totalSalesTax).subtract(totalOrganicDiscount);
-        
         totalCost = CostCalculator.round(totalCost,new BigDecimal(0.01,MathContext.DECIMAL32));
-        System.out.println(totalCost);
-        
-        return totalCost;
-        
+        logger.log(Level.INFO,"\nTotal Cost is $" + String.format("%.2f",totalCost));
+
+        return totalCost; 
     }
     
     public static BigDecimal round(BigDecimal value, BigDecimal nearestTo)
