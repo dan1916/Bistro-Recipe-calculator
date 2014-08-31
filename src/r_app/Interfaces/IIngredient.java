@@ -24,4 +24,7 @@ public interface IIngredient {
     
     public String getName();
     public void setName(String value);
+    
+    public String getUnit();
+    public void setUnit(String value);
 }

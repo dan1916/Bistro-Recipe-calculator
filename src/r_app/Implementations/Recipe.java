@@ -66,4 +66,16 @@ public class Recipe implements IRecipe {
         this.name = value;
     }
     
+    public String toString()
+    {
+        //Printout each ingredients:
+        String op = "Ingredients :\n";
+        for(IIngredient item:this.listOfIngredients)
+        {
+            op += item.toString() + "\n";
+        }
+        
+        return op;
+    }
+    
 }

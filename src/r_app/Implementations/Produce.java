@@ -26,6 +26,7 @@ public class Produce extends IngredientBase {
         oGarlic.setName("Organic Garlic");
         oGarlic.setOrganic(true);
         oGarlic.setPrice(new BigDecimal("0.67"));
+        oGarlic.setUnit("Clove");
         
         return oGarlic;
     }
@@ -36,6 +37,7 @@ public class Produce extends IngredientBase {
         oLemon.setName("Lemon");
         oLemon.setOrganic(false);
         oLemon.setPrice(new BigDecimal("2.03"));
+        oLemon.setUnit("");
         
         return oLemon;
     }
@@ -46,8 +48,9 @@ public class Produce extends IngredientBase {
         oCorn.setName("Corn");
         oCorn.setOrganic(false);
         oCorn.setPrice(new BigDecimal("0.87"));
+        oCorn.setUnit("Cup");
         
         return oCorn;
     }
-
+     
 }

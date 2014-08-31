@@ -25,6 +25,8 @@ public class Meat extends IngredientBase
         IIngredient oChkn = (IIngredient) new Meat();
         oChkn.setName("Chicken Breast");
         oChkn.setPrice(new BigDecimal("2.19"));
+        oChkn.setOrganic(false);
+        oChkn.setUnit("");
         
         return oChkn;
     }
@@ -34,6 +36,8 @@ public class Meat extends IngredientBase
         IIngredient oBacon = (IIngredient) new Meat();
         oBacon.setName("Bacon");
         oBacon.setPrice(new BigDecimal("0.24"));
+        oBacon.setOrganic(false);
+        oBacon.setUnit("Slice");
         
         return oBacon;
     }

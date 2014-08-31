@@ -26,6 +26,7 @@ public class Pantry extends IngredientBase {
         oPasta.setName("Pasta");
         oPasta.setOrganic(false);
         oPasta.setPrice(new BigDecimal("0.31"));
+        oPasta.setUnit("Ounce");
         
         return oPasta;
     }
@@ -36,6 +37,7 @@ public class Pantry extends IngredientBase {
         oOil.setName("Organic Olive Oil");
         oOil.setOrganic(true);
         oOil.setPrice(new BigDecimal("1.92"));
+        oOil.setUnit("Cup");
         
         return oOil;
     }
@@ -46,6 +48,7 @@ public class Pantry extends IngredientBase {
         oVinegar.setName("Vinegar");
         oVinegar.setOrganic(false);
         oVinegar.setPrice(new BigDecimal("1.26"));
+        oVinegar.setUnit("Cup");
         
         return oVinegar;
     }
@@ -56,6 +59,7 @@ public class Pantry extends IngredientBase {
         oSalt.setName("Salt");
         oSalt.setOrganic(false);
         oSalt.setPrice(new BigDecimal("0.16"));
+        oSalt.setUnit("Tea Spoon");
         
         return oSalt;
     }
@@ -66,6 +70,7 @@ public class Pantry extends IngredientBase {
         oPepper.setName("Pepper");
         oPepper.setOrganic(false);
         oPepper.setPrice(new BigDecimal("0.17"));
+        oPepper.setUnit("Tea Spoon");
         
         return oPepper;
     }

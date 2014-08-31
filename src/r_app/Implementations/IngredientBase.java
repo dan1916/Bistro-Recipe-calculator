@@ -16,6 +16,7 @@ import r_app.Interfaces.IIngredient;
 public abstract class IngredientBase implements IIngredient {
     
     String name;
+    String unit;
     boolean isOrganic;
     BigDecimal price;
     double amount;
@@ -31,6 +32,7 @@ public abstract class IngredientBase implements IIngredient {
         this.isOrganic = false;
         this.price = new BigDecimal("0.0");
         this.amount = 1;
+        this.unit = "cup";
     }
 
     @Override
@@ -62,8 +64,6 @@ public abstract class IngredientBase implements IIngredient {
     public void setAmount(double amount)
     {
         this.amount = amount;
-        if (this.amount ==0)
-            System.out.println("ZERO ?");
     }
 
     @Override
@@ -74,5 +74,21 @@ public abstract class IngredientBase implements IIngredient {
     @Override
     public void setName(String value) {
         this.name = value;
+    }
+    
+    public String getUnit()
+    {
+        return this.unit;
+    }
+    
+    public void setUnit(String value)
+    {
+        this.unit = value;
+    }
+    
+    public final String toString()
+    {
+        
+        return String.format("%.2g",this.getAmount()) + " " + this.getUnit() + " " +  this.getName() + "\t\t\t $" + this.getPrice();
     }
 }
