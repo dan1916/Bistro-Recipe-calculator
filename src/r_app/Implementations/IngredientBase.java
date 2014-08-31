@@ -88,7 +88,6 @@ public abstract class IngredientBase implements IIngredient {
     
     public final String toString()
     {
-        
-        return String.format("%.2g",this.getAmount()) + " " + this.getUnit() + " " +  this.getName() + "\t\t\t $" + this.getPrice();
+       return String.format("%.2f",this.getAmount()) + " " + this.getUnit() + " " +  this.getName() + "\t\t\t $" + this.getPrice();
     }
 }
