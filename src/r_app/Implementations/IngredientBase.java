@@ -1,9 +1,8 @@
 package r_app.Implementations;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * The base and abstract class providing a very basic implementation of the
+ * IIngredient interface.
  */
 
 import java.math.BigDecimal;
@@ -11,7 +10,7 @@ import r_app.Interfaces.IIngredient;
 
 /**
  *
- * @author smart
+ * @author Dhaval
  */
 public abstract class IngredientBase implements IIngredient {
     
@@ -35,57 +34,95 @@ public abstract class IngredientBase implements IIngredient {
         this.unit = "cup";
     }
 
-    @Override
+    /**
+     * Gets a value indicating whether the food is organic or not.
+     * @return 
+     */
     public boolean isOrganic() {
        return this.isOrganic;
     }
 
-    @Override
+    /**
+     * Sets a value indicating whether the food is organic or not.
+     * @param value 
+     */
     public void setOrganic(boolean value) {
        this.isOrganic = value;
     }
 
-    @Override
+    /**
+     * Gets a value indicating the price of ingredient.
+     * @return 
+     */
     public BigDecimal getPrice() {
        return this.price;
     }
 
-    @Override
+    /**
+     * Sets a value indicating the price of ingredient.
+     * @param value 
+     */
     public void setPrice(BigDecimal value) {
         if (value!=null)
             this.price = value;
     }
     
+    /**
+     * Gets a value indicating the amount of ingredient to be used.
+     * @return 
+     */
     public double getAmount()
     {
         return this.amount;
     }
     
+    /**
+     * Sets a value indicating the amount of ingredient to be used.
+     * @param value 
+     */
     public void setAmount(double amount)
     {
         this.amount = amount;
     }
 
-    @Override
+    /**
+     * Gets the name of this ingredient.
+     * @return 
+     */
     public String getName() {
        return this.name;
     }
 
-    @Override
+    /**
+     * Sets the name of this ingredient.
+     * @param value 
+     */
     public void setName(String value) {
         this.name = value;
     }
     
+    /**
+     * Gets the measurement unit.
+     * @return 
+     */
     public String getUnit()
     {
         return this.unit;
     }
     
+    /**
+     * Sets the measurement unit.
+     * @param value 
+     */
     public void setUnit(String value)
     {
         this.unit = value;
     }
     
+    /**
+     * Returns string summary of this ingredient.
+     * @return 
+     */
     public final String toString()
     {
        return String.format("%.2f",this.getAmount()) + " " + this.getUnit() + " " +  this.getName() + "\t\t\t $" + this.getPrice();
