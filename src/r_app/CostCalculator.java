@@ -31,7 +31,9 @@ public final class CostCalculator {
     
     private final double salesTax ;
     private final double wellnessDiscount;
-    
+    private BigDecimal totalSalesTax = BigDecimal.ZERO;
+    private BigDecimal totalOrganicDiscount = BigDecimal.ZERO;
+            
     public CostCalculator()
     {
         this.salesTax = 8.6;
@@ -56,9 +58,7 @@ public final class CostCalculator {
         BigDecimal totalCost = BigDecimal.ZERO;
         BigDecimal totalPriceWithoutProduce = BigDecimal.ZERO;
         BigDecimal totalPriceOfProduce = BigDecimal.ZERO;
-        BigDecimal totalSalesTax = BigDecimal.ZERO;
         BigDecimal organicOnlyPrice = BigDecimal.ZERO;
-        BigDecimal totalOrganicDiscount = BigDecimal.ZERO;
         
         //First basically iterate and calcuate price...
         for(IIngredient ingredient : recipe.getIngredients()) 
@@ -99,6 +99,24 @@ public final class CostCalculator {
         logger.log(Level.INFO,"\nTotal Cost is $" + String.format("%.2f",totalCost));
 
         return totalCost; 
+    }
+    
+    /**
+     * Gets the calculated total sales tax.
+     * @return 
+     */
+    public BigDecimal getTotalSalesTax()
+    {
+        return this.totalSalesTax;
+    }
+    
+    /**
+     * Gets the calculated wellness discount.
+     * @return 
+     */
+    public BigDecimal getTotalWellnessDiscount()
+    {
+        return this.totalOrganicDiscount;
     }
     
     /**
