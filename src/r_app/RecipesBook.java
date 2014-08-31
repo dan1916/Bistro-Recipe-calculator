@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This is a class which provides various factory methods to instantiate preset
+ * receipes.
  */
 package r_app;
 
@@ -11,15 +10,19 @@ import r_app.Interfaces.IRecipe;
 
 /**
  *
- * @author smart
+ * @author Dhaval
  */
 public final class RecipesBook {
     
     private RecipesBook()
     {
-    
+        //Nothing here.
     }
     
+    /**
+     * Makes salad dressing recipe.
+     * @return 
+     */
     public static IRecipe makeSaladDressing()
     {
         Recipe saladDressing = new Recipe();
@@ -32,6 +35,10 @@ public final class RecipesBook {
         return saladDressing;
     }
     
+    /**
+     * Makes chicken breast recipe.
+     * @return 
+     */
     public static IRecipe makeHealthyChickenBreast()
     {
         Recipe chickenBreast = new Recipe();
@@ -44,6 +51,10 @@ public final class RecipesBook {
         
     }
     
+    /**
+     * Makes pasta fiesta recipe.
+     * @return 
+     */
     public static IRecipe makePastaFiesta()
     {
         Recipe pastaFiesta = new Recipe();
