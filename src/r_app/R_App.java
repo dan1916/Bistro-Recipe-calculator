@@ -41,7 +41,7 @@ public class R_App {
         //Print out options...
         System.out.println("\nRecipies :");
         System.out.println("(1) Salad Dressing , (2) Healty Chicken Breast and (3) Pasta Fiesta");
-        System.out.print("(4) Make your own, (5) Exit\n\nChoice>");
+        System.out.print("(4) Make your own, (5) Exit\n\n");
         
         //Start taking input...
         R_App.askLoop();
@@ -54,27 +54,27 @@ public class R_App {
     private static void printProduceItems()
     {
         System.out.println("Produce :");
-        System.out.println("\t" + Produce.Gralic());
-        System.out.println("\t" + Produce.Lemon());
-        System.out.println("\t" + Produce.Corn());
+        System.out.println("\t (1)" + Produce.Gralic());
+        System.out.println("\t (2)" + Produce.Lemon());
+        System.out.println("\t (3)" + Produce.Corn());
     }
     
     private static void printMeatItems()
     {
         System.out.println("\nMeat :");
-        System.out.println("\t" + Meat.ChickenBreast());
-        System.out.println("\t" + Meat.Bacon());
+        System.out.println("\t (1)" + Meat.ChickenBreast());
+        System.out.println("\t (2)" + Meat.Bacon());
          
     }
     
     private static void printPantryItems()
     {
         System.out.println("\nPantry :");
-        System.out.println("\t" + Pantry.OrganicOliveOil());
-        System.out.println("\t" + Pantry.Pasta());
-        System.out.println("\t" + Pantry.Pepper());
-        System.out.println("\t" + Pantry.Salt());
-        System.out.println("\t" + Pantry.Vinegar());
+        System.out.println("\t (1)" + Pantry.OrganicOliveOil());
+        System.out.println("\t (2)" + Pantry.Pasta());
+        System.out.println("\t (3)" + Pantry.Pepper());
+        System.out.println("\t (4)" + Pantry.Salt());
+        System.out.println("\t (5)" + Pantry.Vinegar());
     }
     
     private static void askLoop() throws IOException
@@ -84,6 +84,7 @@ public class R_App {
        
         while(askLoop)
         {
+            System.out.print("Choice>");
             String s = br.readLine();
             IRecipe currentRecipe = null;
             
