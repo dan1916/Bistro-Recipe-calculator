@@ -4,7 +4,6 @@
 
 package r_app.Implementations;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import org.junit.After;
 import static org.junit.Assert.*;
