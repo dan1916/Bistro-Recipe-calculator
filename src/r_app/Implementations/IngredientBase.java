@@ -9,7 +9,8 @@ import java.math.BigDecimal;
 import r_app.Interfaces.IIngredient;
 
 /**
- *
+ * The base and abstract class providing a very basic implementation of the
+ * IIngredient interface.
  * @author Dhaval
  */
 public abstract class IngredientBase implements IIngredient {
@@ -25,6 +26,10 @@ public abstract class IngredientBase implements IIngredient {
         this("");
     }
     
+    /**
+     * Initialize ingredient by its name.
+     * @param name 
+     */
     IngredientBase(String name)
     {
         this.name = name;

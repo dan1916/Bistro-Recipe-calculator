@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Extends the basic ingredient class to concrete Produce products.
  */
 package r_app.Implementations;
 
@@ -10,7 +8,7 @@ import r_app.Interfaces.IIngredient;
 
 
 /**
- *
+ * Extends the basic ingredient class to concrete Produce products.
  * @author smart
  */
 public class Produce extends IngredientBase {
@@ -20,6 +18,10 @@ public class Produce extends IngredientBase {
         super();
     }
     
+    /**
+     * Returns a clove of organic garlic bread as ingredient.
+     * @return 
+     */
     public static IIngredient Gralic()
     {
         IIngredient oGarlic = (IIngredient) new Produce();
@@ -31,6 +33,10 @@ public class Produce extends IngredientBase {
         return oGarlic;
     }
     
+    /**
+     * Returns a lemon as ingredient.
+     * @return 
+     */
     public static IIngredient Lemon()
     {
         IIngredient oLemon = (IIngredient) new Produce();
@@ -42,6 +48,10 @@ public class Produce extends IngredientBase {
         return oLemon;
     }
     
+    /**
+     * Returns a cup of corn as ingredient.
+     * @return 
+     */
      public static IIngredient Corn()
     {
         IIngredient oCorn = (IIngredient) new Produce();

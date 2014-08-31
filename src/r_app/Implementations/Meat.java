@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Extends the basic ingredient class to concrete Meat products.
  */
 package r_app.Implementations;
 
@@ -10,8 +8,8 @@ import r_app.Interfaces.*;
 
 
 /**
- *
- * @author smart
+ * Extends the basic ingredient class to concrete Meat products.
+ * @author Dhaval
  */
 public class Meat extends IngredientBase
 {
@@ -20,6 +18,10 @@ public class Meat extends IngredientBase
         super();
     }
     
+    /**
+     * Returns a chicken breast as ingredient.
+     * @return 
+     */
     public static IIngredient ChickenBreast()
     {
         IIngredient oChkn = (IIngredient) new Meat();
@@ -31,6 +33,10 @@ public class Meat extends IngredientBase
         return oChkn;
     }
     
+    /**
+     * Returns one slice of bacon as ingredient.
+     * @return 
+     */
     public static IIngredient Bacon()
     {
         IIngredient oBacon = (IIngredient) new Meat();

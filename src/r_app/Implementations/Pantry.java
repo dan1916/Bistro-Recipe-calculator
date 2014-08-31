@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Extends the basic ingredient class to concrete Pnatry products.
  */
 package r_app.Implementations;
 
@@ -10,8 +8,8 @@ import r_app.Interfaces.IIngredient;
 
 
 /**
- *
- * @author smart
+ * Extends the basic ingredient class to concrete Pnatry products.
+ * @author Dhaval
  */
 public class Pantry extends IngredientBase {
     
@@ -20,6 +18,10 @@ public class Pantry extends IngredientBase {
         super();
     }
     
+    /**
+     * Returns an ounce of pasta as ingredient.
+     * @return 
+     */
     public static IIngredient Pasta()
     {
         IIngredient oPasta = (IIngredient) new Pantry();
@@ -31,6 +33,10 @@ public class Pantry extends IngredientBase {
         return oPasta;
     }
     
+    /**
+     * Returns a cup of organic olive oil as ingredient.
+     * @return 
+     */
     public static IIngredient OrganicOliveOil()
     {
         IIngredient oOil = (IIngredient) new Pantry();
@@ -42,6 +48,10 @@ public class Pantry extends IngredientBase {
         return oOil;
     }
     
+    /**
+     * Returns a cup of vinegar as indredient.
+     * @return 
+     */
     public static IIngredient Vinegar()
     {
         IIngredient oVinegar = (IIngredient) new Pantry();
@@ -53,6 +63,10 @@ public class Pantry extends IngredientBase {
         return oVinegar;
     }
     
+    /**
+     * Returns a tea spoon of salt as ingredient.
+     * @return 
+     */
     public static IIngredient Salt()
     {
         IIngredient oSalt = (IIngredient) new Pantry();
@@ -64,6 +78,10 @@ public class Pantry extends IngredientBase {
         return oSalt;
     }
     
+    /**
+     * Returns on tea spoon of pepper as ingredient.
+     * @return 
+     */
     public static IIngredient Pepper()
     {
         IIngredient oPepper = (IIngredient) new Pantry();
