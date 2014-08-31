@@ -1,7 +1,16 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Cost Calulator class. Claculates cost by:
+
+    Total Price
+        ○ Sum of the prices of each ingredient at the quantities required by the recipe
+    The Sales Tax
+        ○ 8.6% of the Total Price rounded up to the nearest 7 cents.
+        ○ Does not apply to Produce
+    Wellness Discount
+        ○ 5% of the Total Price rounded up to the nearest cent
+        ○ Applies only to Organic Items
+    Total Cost
+        ○ Total Price + Sales Tax Wellness - Discount
  */
 package r_app;
 
@@ -15,7 +24,7 @@ import r_app.Interfaces.*;
 
 /**
  *
- * @author smart
+ * @author Dhaval
  */
 public final class CostCalculator {
     
@@ -36,7 +45,8 @@ public final class CostCalculator {
     
     public final BigDecimal CalculateCost(IRecipe recipe)
     {
-        Logger logger = Logger.getLogger("R_APP");
+        Logger logger = Logger.getLogger("R_APP"); //Here is where all log will go.
+        //Now alloc all calculation variables...
         BigDecimal totalCost = BigDecimal.ZERO;
         BigDecimal totalPriceWithoutProduce = BigDecimal.ZERO;
         BigDecimal totalPriceOfProduce = BigDecimal.ZERO;
@@ -44,7 +54,7 @@ public final class CostCalculator {
         BigDecimal organicOnlyPrice = BigDecimal.ZERO;
         BigDecimal totalOrganicDiscount = BigDecimal.ZERO;
         
-        //First basically calcuate price...
+        //First basically iterate and calcuate price...
         for(IIngredient ingredient : recipe.getIngredients()) 
         {
             if (ingredient instanceof Meat || ingredient instanceof Pantry)
@@ -85,6 +95,12 @@ public final class CostCalculator {
         return totalCost; 
     }
     
+    /**
+     * Rounding up function. Rounds up to the nearest decimal.
+     * @param value The value to be rounded up.
+     * @param nearestTo The nearest number to which a value is to be rounded up.
+     * @return rounded big decimal.
+     */
     public static BigDecimal round(BigDecimal value, BigDecimal nearestTo)
     {
         if (nearestTo.signum() == 0)
