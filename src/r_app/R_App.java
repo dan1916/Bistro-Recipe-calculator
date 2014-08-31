@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Food Billing Software
+ * By : Dhaval Suthar
+ * 2014
  */
 package r_app;
 
@@ -13,7 +13,7 @@ import r_app.Interfaces.IRecipe;
 
 /**
  *
- * @author smart
+ * @author Dhaval
  */
 public class R_App {
 
@@ -51,6 +51,9 @@ public class R_App {
         
     }
     
+    /**
+     * Prints all ingredients in Produce category.
+     */
     private static void printProduceItems()
     {
         System.out.println("Produce :");
@@ -59,6 +62,9 @@ public class R_App {
         System.out.println("\t (3)" + Produce.Corn());
     }
     
+    /**
+     * Prints all ingredients in Meat category.
+     */
     private static void printMeatItems()
     {
         System.out.println("\nMeat :");
@@ -67,6 +73,9 @@ public class R_App {
          
     }
     
+    /**
+     * Prints all ingredients in Pantry category.
+     */
     private static void printPantryItems()
     {
         System.out.println("\nPantry :");
@@ -77,6 +86,11 @@ public class R_App {
         System.out.println("\t (5)" + Pantry.Vinegar());
     }
     
+    /**
+     * The main console loop which asks the user to either buy a pre-defined
+     * recipe or make custom one.
+     * @throws IOException 
+     */
     private static void askLoop() throws IOException
     {
         boolean askLoop = true;
@@ -98,18 +112,21 @@ public class R_App {
                     break;
                     
                 case "2":
+                    //Print chicken breast...
                     System.out.println("\n Ok here's your Chicken Breast :");
                     currentRecipe = RecipesBook.makeHealthyChickenBreast();
                     System.out.println(currentRecipe);
                     break;
                     
                 case "3":
+                    //Print pasta fiesta...
                     System.out.println("\n Ok here's your Pasta Fiesta :");
                     currentRecipe = RecipesBook.makePastaFiesta();
                     System.out.println(currentRecipe);
                     break;
                     
                 case "4":
+                    //Ask the user to input ingredients one by one and their amount...
                     System.out.println("\n Ok now select your ingredients:");
                     currentRecipe = R_App.makeCustomRecipe();
                     System.out.println("\nSo here's what you have made:");
@@ -117,6 +134,7 @@ public class R_App {
                     break;
                     
                 case "5":
+                    //User wants to quit
                     askLoop = false;
                     break;
                     
@@ -129,12 +147,17 @@ public class R_App {
             if (askLoop)
             {
                CostCalculator calc = new CostCalculator();
-               calc.CalculateCost(currentRecipe);       
+               calc.CalculateCost(currentRecipe); //This will also log the operation details.       
             }
              
         }
     }
     
+    /**
+     * Asks the user to input ingredients and their amount and returns IRecipe instance.
+     * @return IRecpie Instance.
+     * @throws IOException 
+     */
     private static IRecipe makeCustomRecipe() throws IOException
     {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -145,6 +168,10 @@ public class R_App {
         R_App.printProduceItems();
         System.out.println("Enter an item number. Type done when finished.");
         String amount = null;
+        
+        //First of all, start from the items of Produce category.
+        
+        //Now start the loop...
         while(askLoop)
         {
             System.out.print("Choice>");
@@ -152,6 +179,7 @@ public class R_App {
             switch(br.readLine())
             {
                 case "1":
+                    //User wants to add garlic. Ask the quantity.
                     System.out.print("How much>");
                     amount = br.readLine();
                     try
@@ -166,6 +194,7 @@ public class R_App {
                     break;
 
                 case "2":
+                    //User wants to add Lemon. Ask the quantity.
                     System.out.print("How much>");
                     amount = br.readLine();
                     try
@@ -180,6 +209,7 @@ public class R_App {
                     break;
                     
                 case "3":
+                    //User wants to add Corn. Ask the quantity.
                     System.out.print("How much>");
                     amount = br.readLine();
                     try
@@ -195,6 +225,7 @@ public class R_App {
                     break;
 
                 case "done":
+                    //User has finished selecting items from this category.
                     askLoop = false;
                     System.out.println("Done selecting items from produce.");
                     break;
@@ -205,6 +236,7 @@ public class R_App {
             }
         }
         
+        //Now comes the Meat category.
         askLoop = true;
         System.out.println("\n\nWhat do you want to add from Meat ?");
         R_App.printMeatItems();
@@ -216,6 +248,7 @@ public class R_App {
             switch(br.readLine())
             {
                 case "1":
+                    //User wants to add chicken. Ask the quantity.
                     System.out.print("How much>");
                     amount = br.readLine();
                     try
@@ -230,6 +263,7 @@ public class R_App {
                     break;
 
                 case "2":
+                    //User wants to add bacon. Ask the quantity.
                     System.out.print("How much>");
                     amount = br.readLine();
                     try
@@ -244,6 +278,7 @@ public class R_App {
                     break;
                     
                 case "done":
+                    //User is done.
                     askLoop = false;
                     System.out.println("Done selecting items from Meat.");
                     break;
@@ -254,6 +289,7 @@ public class R_App {
             }
         }
         
+        //Finally comes the pantry category.
         askLoop = true;
         System.out.println("\n\nWhat do you want to add from Pantry ?");
         R_App.printPantryItems();
@@ -265,6 +301,7 @@ public class R_App {
             switch(br.readLine())
             {
                 case "1":
+                    //User wants to add Olive oil. Ask the quantity.
                     System.out.print("How much>");
                     amount = br.readLine();
                     try
@@ -279,6 +316,7 @@ public class R_App {
                     break;
 
                 case "2":
+                    //User wants to add Pasta. Ask the quantity.
                     System.out.print("How much>");
                     amount = br.readLine();
                     try
@@ -293,6 +331,7 @@ public class R_App {
                     break;
                     
                 case "3":
+                    //User wants to add pepper. Ask the quantity.
                     System.out.print("How much>");
                     amount = br.readLine();
                     try
@@ -307,6 +346,7 @@ public class R_App {
                     break;  
                     
                 case "4":
+                    //User wants to add salt. Ask the quantity.
                     System.out.print("How much>");
                     amount = br.readLine();
                     try
@@ -321,6 +361,7 @@ public class R_App {
                     break;    
                     
                 case "5":
+                    //User wants to add Vineger. Ask the quantity.
                     System.out.print("How much>");
                     amount = br.readLine();
                     try
@@ -335,6 +376,7 @@ public class R_App {
                     break;
                     
                 case "done":
+                    //User is done.
                     askLoop = false;
                     System.out.println("Done selecting items from Meat.");
                     break;
@@ -345,6 +387,6 @@ public class R_App {
             }
         }
         
-        return customRecipe;
+        return customRecipe; //We're done. Return the instance.
     }
 }
