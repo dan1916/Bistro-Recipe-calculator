@@ -9,9 +9,6 @@ package r_app.Interfaces;
  */
 public interface IRecipe {
 
-    /**
-     *
-     */
     public void addIngredient(IIngredient value, double amount);
     public void removeIngredient(IIngredient value);
     public IIngredient[] getIngredients();
